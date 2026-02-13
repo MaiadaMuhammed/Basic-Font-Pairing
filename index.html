@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Font Pairing Experience</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&family=Playfair+Display:wght@600&family=Lato&family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== Global Styles ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#0f172a;
+color:white;
+font-family:'Roboto',sans-serif;
+overflow-x:hidden;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:60px 20px;
+}
+
+/* ===== Header ===== */
+
+header{
+text-align:center;
+margin-bottom:60px;
+}
+
+header h1{
+font-size:2.5rem;
+margin-bottom:15px;
+background:linear-gradient(to right,#38bdf8,#a78bfa);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+header p{
+opacity:0.8;
+}
+
+/* ===== Buttons ===== */
+
+.style-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:50px;
+flex-wrap:wrap;
+}
+
+.style-buttons button{
+padding:10px 20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#1e293b;
+color:white;
+transition:0.3s;
+}
+
+.style-buttons button:hover{
+background:#38bdf8;
+transform:scale(1.05);
+}
+
+/* ===== Cards Grid ===== */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+/* ===== Card Base ===== */
+
+.card{
+padding:30px;
+border-radius:20px;
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+/* Animation appear */
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Hover effect */
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+/* ===== Modern Style ===== */
+
+.modern{
+background:white;
+color:#111;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modern h2{
+font-family:'Poppins',sans-serif;
+}
+
+/* ===== Glass Style ===== */
+
+.glass{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.2);
+}
+
+.glass h2{
+font-family:'Playfair Display',serif;
+}
+
+.glass p{
+font-family:'Lato',sans-serif;
+}
+
+/* ===== Dark / Light Style ===== */
+
+.darkmode{
+background:#020617;
+border:1px solid #334155;
+}
+
+.darkmode h2{
+font-family:'Montserrat',sans-serif;
+}
+
+.darkmode p{
+font-family:'Open Sans',sans-serif;
+}
+
+/* ===== Footer ===== */
+
+footer{
+text-align:center;
+margin-top:70px;
+opacity:0.6;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>Font Pairing Showcase</h1>
+<p>Interactive Typography Experience</p>
+</header>
+
+<div class="style-buttons">
+<button onclick="showStyle('all')">All Styles</button>
+<button onclick="showStyle('modern')">Modern</button>
+<button onclick="showStyle('glass')">Glassmorphism</button>
+<button onclick="showStyle('darkmode')">Dark / Light</button>
+</div>
+
+<div class="cards">
+
+<!-- Modern Card -->
+<div class="card modern">
+<h2>Modern Clean</h2>
+<p><b>Poppins</b> headings</p>
+<p><b>Roboto</b> body text</p>
+<p>Clean and professional style suitable for startups and tech websites.</p>
+</div>
+
+<!-- Glass Card -->
+<div class="card glass">
+<h2>Glassmorphism</h2>
+<p><b>Playfair Display</b> headings</p>
+<p><b>Lato</b> body text</p>
+<p>Premium and elegant typography for luxury branding.</p>
+</div>
+
+<!-- Dark Card -->
+<div class="card darkmode">
+<h2>Dark / Light Friendly</h2>
+<p><b>Montserrat</b> headings</p>
+<p><b>Open Sans</b> body text</p>
+<p>High readability across light and dark UI environments.</p>
+</div>
+
+</div>
+
+<footer>
+Typography UI Demo – Front-End Showcase
+</footer>
+
+</div>
+
+<script>
+
+/* ===== Animation on Load ===== */
+
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("load", ()=>{
+cards.forEach((card,i)=>{
+setTimeout(()=>{
+card.classList.add("show");
+}, i * 200);
+});
+});
+
+/* ===== Filter Styles ===== */
+
+function showStyle(style){
+
+cards.forEach(card=>{
+
+if(style === "all"){
+card.style.display = "block";
+return;
+}
+
+if(card.classList.contains(style)){
+card.style.display = "block";
+}else{
+card.style.display = "none";
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
